@@ -6,14 +6,19 @@ const meta: Meta<typeof ArrowButton> = {
 	component: ArrowButton,
 };
 
+export type ArrowButtonProps = {
+	OnClick: () => void;
+	isOpen: boolean;
+};
+
 export default meta;
 type Story = StoryObj<typeof ArrowButton>;
 
 export const ArrowButtonStory: Story = {
-	render: () => {
+	render: ({ isOpen, OnClick }: ArrowButtonProps) => {
 		return (
 			<>
-				<ArrowButton />
+				<ArrowButton isOpen={isOpen} OnClick={OnClick} />
 			</>
 		);
 	},

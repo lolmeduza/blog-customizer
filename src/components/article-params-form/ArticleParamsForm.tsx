@@ -15,6 +15,8 @@ import {
 } from 'src/constants/articleProps';
 import { useOutsideClickClose } from '../select/hooks/useOutsideClickClose';
 import { Select } from '../select';
+import { RadioGroup } from '../radio-group';
+import { Separator } from '../separator';
 
 type ArticleParamsFormProps = {
 	currentArticleState: ArticleStateType;
@@ -60,7 +62,6 @@ export const ArticleParamsForm = ({
 		});
 	};
 	const handleSubmitForm = (e: SyntheticEvent<HTMLFormElement>) => {
-		console.log(e);
 		e.preventDefault();
 		setCurrentArticleState({
 			contentWidth: newContentWidth,
@@ -84,15 +85,15 @@ export const ArticleParamsForm = ({
 						onChange={setNewFamilyOption}
 						title='шрифт'
 					/>
-					<br></br>
-					<Select
+
+					<RadioGroup
+						name={'_radio_item'}
 						options={fontSizeOptions}
-						placeholder={newfontSizeOption.value}
 						selected={newfontSizeOption}
 						onChange={setNewfontSizeOption}
 						title='размер шрифта'
 					/>
-					<br></br>
+
 					<Select
 						options={fontColors}
 						placeholder={newFontColor.value}
@@ -100,7 +101,7 @@ export const ArticleParamsForm = ({
 						onChange={setNewFontColor}
 						title='Цвет шрифта'
 					/>
-					<br></br>
+					<Separator />
 					<Select
 						options={backgroundColors}
 						placeholder={newBackgroundColor.value}
@@ -108,7 +109,7 @@ export const ArticleParamsForm = ({
 						onChange={setNewBackgroundColor}
 						title='Цвет фона'
 					/>
-					<br></br>
+
 					<Select
 						options={contentWidthArr}
 						placeholder={newContentWidth.value}

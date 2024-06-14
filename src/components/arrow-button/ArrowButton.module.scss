@@ -13,7 +13,12 @@
 	transition: transform 0.5s ease;
 }
 
+.container:hover {
+	background-color: rgba($color: #ffc802, $alpha: 100%);
+}
+
 .container_open {
+	background-color: rgba($color: #787878, $alpha: 100%);
 	transform: translate(616px);
 }
 
@@ -27,4 +32,12 @@
 
 .arrow_open {
 	transform: rotate(0deg);
+}
+
+.arrow:hover {
+	color: yellow;
+}
+
+.arrow:focus-visible {
+	color: yellow;
 }
